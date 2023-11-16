@@ -1,0 +1,49 @@
+﻿@{
+}
+@await Component.InvokeAsync("ContactsList")
+
+<button type="button" class="btn btn-primary" id="openModal" data-bs-toggle="modal" data-bs-target="#popUp">
+    Добавить запись
+</button>
+
+<div class="modal fade" id="popUp" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="ModalLabel">Форма</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form class="form-floating" id="creatingForm">
+                    <input type="text" class="d-none" id="contactId" name="Id" />
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="Name" name="Name">
+                        <label for="Name">Имя</label>
+                        <div class="text-danger text-center" align-content-center" id="nameError"></div>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="MobilePhone" name="MobilePhone">
+                        <label for="MobilePhone">Номер телефона</label>
+                        <div class="text-danger text-center" id="MobilePhoneError"></div>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="JobTitle" name="JobTitle">
+                        <label for="JobTitle">Должность</label>
+                        <div class="text-danger text-center" id="JobTitleError"></div>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="date" class="form-control" id="BirthDate" name="BirthDate">
+                        <label for="BirthDate">Дата рождения</label>
+                        <div class="text-danger text-center" id="BirthDateError"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" id="closeButton" data-bs-dismiss="modal">Закрыть</button>
+                        <a class="btn btn-danger" asp-action="DeleteContact" id="deleteContact">Удалить</a>
+                        <button type="submit" class="btn btn-primary" id="addContact">Добавить запись</button>
+                        <button type="submit" class="btn btn-primary d-none" id="updateContact">Обновить данные</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

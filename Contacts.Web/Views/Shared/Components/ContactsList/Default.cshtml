@@ -1,0 +1,27 @@
+﻿@model IList<Contacts.Application.DTO.Contacts.ContactDto>
+@{
+}
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Имя</th>
+            <th scope="col">Место работы</th>
+            <th scope="col">Номер телефона</th>
+            <th scope="col">День рождения</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var contact in Model)
+        {
+            <tr class="table-row" data-bs-toggle="modal" data-bs-target="#popUp" data-id="@contact.Id" data-name="@contact.Name" data-jobTitle = "@contact.JobTitle" data-mobilePhone="@contact.MobilePhone" data-birthDate="@contact.BirthDate"> 
+                <th scope="row">@contact.Id</th>
+                <td>@contact.Name</td>
+                <td>@contact.JobTitle</td>
+                <td>@contact.MobilePhone</td>
+                <td>@contact.BirthDate.Split(' ')[0]</td>
+            </tr>
+        }
+    </tbody>
+
+</table>
